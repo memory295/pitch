@@ -3,7 +3,7 @@
 const CONFIG = {
   clientName: "Ministry of Trade",
   clientShort: "MoT",
-  preparedDate: "October 28, 2026",
+  preparedDate: "November 19, 2026",
   demoUrl: "#",
   contact: {
     location: "Blantyre, Malawi",
@@ -74,15 +74,15 @@ function renderConfig() {
     websiteLink.href = CONFIG.contact.websiteUrl;
   }
 
-  document.title = "Modern White-Label Support Services | " + CONFIG.clientName;
+  document.title = "Mitra Helpdesk for the " + CONFIG.clientName;
 
   const description = document.querySelector('meta[name="description"]');
   if (description) {
     description.setAttribute(
       "content",
-      "A private client pitch for " +
+      "A private proposal for " +
         CONFIG.clientName +
-        ": white-label helpdesk solutions built for growth, security and branded support services."
+        ": a dedicated, Ministry-branded customer support platform for managing stakeholder enquiries, complaints and service requests."
     );
   }
 }
@@ -470,7 +470,10 @@ function initScrollSections() {
     }
 
     const progress = computeProgress(timelineSection);
-    const index = progress < 0.34 ? 0 : progress < 0.68 ? 1 : 2;
+    const index = Math.min(
+      timelineSteps.length - 1,
+      Math.floor(progress * timelineSteps.length)
+    );
 
     if (index === timelineIndex) {
       return;

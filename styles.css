@@ -419,6 +419,104 @@ button {
   order: -1;
 }
 
+/* ---------- Tenant relationship diagram ---------- */
+
+.media-frame--diagram {
+  aspect-ratio: auto;
+  overflow: visible;
+  background: transparent;
+}
+
+.tenant-map {
+  width: 100%;
+  max-width: 470px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tenant-node {
+  position: relative;
+  width: 100%;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #F7F9FC;
+  text-align: center;
+}
+
+.tenant-node h3 {
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.tenant-node p {
+  margin-top: 6px;
+  font-size: clamp(0.76rem, 0.92vw, 0.84rem);
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.tenant-node--platform {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.tenant-node--platform h3 {
+  color: var(--white);
+}
+
+.tenant-node--platform p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.tenant-node--tenant {
+  background: #EAF2FE;
+  border-color: #BCD7FA;
+}
+
+.tenant-node--tenant h3 {
+  color: var(--navy);
+}
+
+.tenant-connector {
+  width: 2px;
+  height: 24px;
+  background: #C3CFDC;
+}
+
+.tenant-branches {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  padding-top: 24px;
+}
+
+.tenant-branches::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: #C3CFDC;
+}
+
+.tenant-branches .tenant-node::before {
+  content: "";
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  width: 2px;
+  height: 24px;
+  background: #C3CFDC;
+  transform: translateX(-50%);
+}
+
 /* ============================================================
    4. PROBLEM
    ============================================================ */
@@ -477,6 +575,11 @@ button {
   border: 3px solid var(--blue);
 }
 
+.bullets strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
 /* ============================================================
    5. STATS
    ============================================================ */
@@ -494,27 +597,26 @@ button {
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(28px, 4vw, 56px);
   margin-top: clamp(44px, 7vh, 72px);
-  text-align: center;
+  text-align: left;
 }
 
-.stat-number {
-  font-size: clamp(2.9rem, 5.4vw, 4.8rem);
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  color: var(--blue);
-  font-variant-numeric: tabular-nums;
+.stat {
+  padding-top: 24px;
+  border-top: 2px solid var(--line);
 }
 
-.stat-prefix {
-  font-weight: 300;
+.stat-title {
+  font-size: clamp(1rem, 1.25vw, 1.12rem);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.35;
 }
 
 .stat-caption {
-  margin: 16px auto 0;
-  max-width: 220px;
-  font-size: clamp(0.86rem, 1vw, 0.97rem);
-  line-height: 1.55;
+  margin: 12px 0 0;
+  max-width: none;
+  font-size: clamp(0.88rem, 1vw, 0.97rem);
+  line-height: 1.65;
   color: var(--body);
 }
 
@@ -725,7 +827,7 @@ button {
    ============================================================ */
 
 .plans {
-  padding-top: clamp(64px, 9vh, 110px);
+  padding-top: clamp(100px, 13vh, 150px);
 }
 
 .plans-grid {
@@ -733,6 +835,15 @@ button {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(24px, 3vw, 40px);
   margin-top: clamp(44px, 6vh, 64px);
+}
+
+.plans-intro {
+  max-width: 880px;
+  margin: clamp(22px, 3.5vh, 34px) auto 0;
+  text-align: center;
+  font-size: clamp(0.92rem, 1.05vw, 1rem);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .plan {
@@ -760,7 +871,7 @@ button {
 
 .timeline {
   position: relative;
-  height: 300vh;
+  height: 400vh;
   background: var(--white);
 }
 
@@ -773,7 +884,7 @@ button {
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  padding: clamp(28px, 4vh, 56px) clamp(20px, 5vw, 72px) clamp(100px, 13vh, 140px);
+  padding: clamp(56px, 8vh, 96px) clamp(20px, 5vw, 72px) clamp(100px, 13vh, 140px);
 }
 
 .timeline-head {
@@ -967,6 +1078,17 @@ button {
 .closing .split {
   grid-template-columns: auto minmax(0, 1fr);
   gap: clamp(40px, 6vw, 84px);
+}
+
+.closing-statement {
+  max-width: 1000px;
+  margin: clamp(40px, 6vh, 60px) auto 0;
+  color: var(--white);
+  font-size: clamp(1.15rem, 2.1vw, 1.65rem);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  text-align: center;
 }
 
 .contact-row {
@@ -1478,8 +1600,18 @@ button {
     padding-bottom: 112px;
   }
 
+  .tenant-branches {
+    grid-template-columns: minmax(0, 1fr);
+    padding-top: 0;
+  }
+
+  .tenant-branches::before,
+  .tenant-branches .tenant-node::before {
+    display: none;
+  }
+
   .timeline-sticky {
-    padding: 22px 20px 92px;
+    padding: 40px 20px 92px;
   }
 
   .timeline-head h2 {
@@ -1580,7 +1712,7 @@ button {
   }
 
   .stat-caption {
-    max-width: 190px;
+    max-width: none;
   }
 }
 
@@ -1614,7 +1746,7 @@ button {
   .stats-grid {
     grid-template-columns: minmax(0, 1fr);
     gap: 22px;
-    text-align: center;
+    text-align: left;
   }
 
   .stat-number {
@@ -1623,7 +1755,7 @@ button {
 
   .stat-caption {
     margin-top: 10px;
-    max-width: 260px;
+    max-width: none;
   }
 
   .tab {

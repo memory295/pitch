@@ -1,4 +1,4 @@
-# White-Label Support Services — Client Pitch Site
+# Mitra Helpdesk — Ministry of Trade Pitch Site
 
 A single-page, scroll-driven pitch website built with plain HTML, CSS and vanilla JavaScript. No frameworks, no build step, no npm dependencies.
 
@@ -37,7 +37,7 @@ Open `script.js` and edit the `CONFIG` object at the very top:
 const CONFIG = {
   clientName: "Ministry of Trade",
   clientShort: "MoT",
-  preparedDate: "October 28, 2026",
+  preparedDate: "November 19, 2026",
   demoUrl: "#",
   contact: {
     location: "Blantyre, Malawi",
@@ -51,7 +51,7 @@ const CONFIG = {
 | Field | Where it appears |
 | --- | --- |
 | `clientName` | Page title, meta description, cover logo alt text, "Prepared for …" |
-| `clientShort` | "Let's See It Live, …" and "Ready to Start, …" headings |
+| `clientShort` | Short client reference available for copy and labels (for example "MoT") |
 | `preparedDate` | Cover footer line |
 | `demoUrl` | "Launch Live Helpdesk" button (opens in a new tab) |
 | `contact.location` | Closing contact row |
@@ -66,7 +66,7 @@ Put the images in `assets/images/` using these filenames (PNG preferred):
 
 ```
 logo.png            logo-transparent.png  cover.png
-thanks.png          platform.png          chaos.png
+thanks.png          chaos.png
 brand-whitelabel.png  brand-domains.png   brand-email.png
 ai-efficiency.png   ai-alerts.png         ai-approval.png
 ai-audit.png        revenue.png           demo.png
@@ -83,7 +83,7 @@ Recommended formats and crops:
 - **thanks.png / demo.png / closing.png** — square images; they are displayed as circles (210px, 380px and 300px respectively on desktop).
 - **ai-*.png** — portrait or landscape works; they fill the full-height right-hand panel.
 - **chaos.png** — fills the left half of the problem section.
-- **platform.png / brand-*.png / revenue.png** — landscape, ideally 4:3.
+- **brand-*.png / revenue.png** — landscape, ideally 4:3.
 
 Any image that is still missing renders a neutral grey block containing its filename, so the layout stays intact. To use a different filename, update both the `src` attribute and the `data-ph` attribute on that image in `index.html`.
 
